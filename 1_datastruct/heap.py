@@ -1,7 +1,7 @@
 #heap
 def downEle(aList,pos,aLen):
-    left=2*pos+1
-    right=2*pos+2
+    left=2*pos
+    right=2*pos+1
     exchange=pos
     if left < aLen and aList[exchange] < aList[left]:
         exchange=left
