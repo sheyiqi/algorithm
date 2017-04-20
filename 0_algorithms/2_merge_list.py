@@ -13,8 +13,8 @@ def merge(l1, l2):
     l.extend(l1)
     l.extend(l2)
     return l
-l1 = []
-l2 = []
+l1 = [1,3,5,7,9]
+l2 = [0,2,4,6,8]
 l=merge(l1,l2)
 print (l)
 
