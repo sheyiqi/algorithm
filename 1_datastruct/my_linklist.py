@@ -6,9 +6,11 @@ class Node(object):
 
 class LinkList(object):
     def __init__(self):
-        self.head = 0
+        self.head = Node(0)
 
     def initlist(self,data):
+        if len(data) == 0:
+            return
         self.head = Node(data[0])
         p = self.head
         for i in data[1:]:
@@ -23,9 +25,12 @@ class LinkList(object):
         i=0
         while (p.next!=0):
             i+=1
+            p=p.next
         return i
     
     def getitem(self,index):
+        if index > self.length():
+            return 
         i=0
         p = self.head
         while (i<index):
@@ -50,9 +55,11 @@ class LinkList(object):
             node.pre = post
             node.next = p
             p.pre =node
-data=[1,2,3,4,5,6]
+data=[1,2]
 l=LinkList()
 l.initlist(data)
+print (l.length())
 print (l.getitem(1))
 l.insert(1,12)
 print (l.getitem(1))
+print (l.length())

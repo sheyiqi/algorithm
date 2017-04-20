@@ -1,15 +1,9 @@
 class stack(object):
-    def __init__(self,size=10):
-        self.data=[]
+    def __init__(self,size):
+        self.data=[[]]*size
         self.size=size
         self.top=-1
         
-    def set_size(self,size):
-        if self.top > size:
-            raise Exception("Stack will over flow")
-            return
-        self.size=size
-
     def top(self):
         return self.data(self.top)
 
@@ -21,19 +15,20 @@ class stack(object):
             raise Exception("Stack over flow")
             return
         else:
-            self.data.append(item)
             self.top += 1
+            self.data[self.top]=item
 
     def pop(self):
         if self.top == -1:
             raise Exception("Stack is empty")
             return
         else:
-            return self.data.pop()
-            
+            X=self.data[self.top]
+            self.top-=1
+
     def show(self):
-        print self.data
-data=stack()
+        print (self.data)
+data=stack(10)
 data.push(1)
 data.show()
 data.push('a')
@@ -44,8 +39,6 @@ data.push('c')
 data.push('4')
 data.push('d')
 data.push('5')
-data.push('e')
-data.push('6')
 data.show()
 data.pop()
 data.show()
